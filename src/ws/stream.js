@@ -1,5 +1,6 @@
 const stream = (socket)=>{
     socket.on('subscribe', (data)=>{
+        console.log(data);
         //subscribe/join a room
         socket.join(data.room);
         socket.join(data.socketId);
@@ -9,7 +10,7 @@ const stream = (socket)=>{
             socket.to(data.room).emit('new user', {socketId:data.socketId});
         }
 
-        console.log(socket.rooms);
+        console.log(socket);
     });
 
 
